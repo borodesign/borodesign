@@ -9,31 +9,44 @@ class Home extends Component {
     this.overlay = null;
     this.heading = null;
     this.cta = null;
+    this.navList = null;
+    this.logo = null;
   }
   componentDidMount() {
     this.myTween = new TimelineLite();
-    this.myTween.to(this.overlay, 3, {
-      scaleX: 0.86,
-      scaleY: 0.8,
-      width: "98%",
-      height: "92vh",
+    this.myTween.from(this.overlay, 2, {
+      height: "100vh",
+      scale: 1.3,
       delay: 0.9,
-      ease: Power2.easeInOut
+      ease: Power2.easeOut
     });
-    this.myTween.to(this.overlay, 0.2, { autoAlpha: 0 }, "-=.9");
     this.myTween.from(this.heading, 1, { autoAlpha: 0, y: 30 }, "-=.8");
     this.myTween.from(this.cta, 1, { autoAlpha: 0, y: -10 }, "+=.08");
+    this.myTween.staggerFrom(
+      this.navList.children,
+      0.5,
+      {
+        y: 30,
+        autoAlpha: 0
+      },
+      0.06,
+      "-=1.5"
+    );
+    this.myTween.from(this.logo, 0.5, { autoAlpha: 0, x: -30 }, "-=2");
   }
 
   render() {
     return (
       <div className="home">
-        <div ref={element => (this.overlay = element)} className="overlay" />
         <aside>
-          <img src="/images/boro.png" alt="" />
+          <img
+            src="/images/boro.png"
+            alt=""
+            ref={element => (this.logo = element)}
+          />
         </aside>
         <nav>
-          <ul>
+          <ul ref={element => (this.navList = element)}>
             <a href="#">
               <li>Work</li>
             </a>
@@ -48,7 +61,7 @@ class Home extends Component {
             </a>
           </ul>
         </nav>
-        <header>
+        <header ref={element => (this.overlay = element)}>
           <h1 ref={element => (this.heading = element)}>
             Digital agency with a passion for creativity
           </h1>
