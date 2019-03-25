@@ -6,8 +6,16 @@
     sidebar-start] minmax(max-content, 1fr) [sidebar-end
     center-start] repeat(8, minmax(min-content, 20rem)) [center-end]
     minmax(2rem, 1fr) [full-end];
-
   align-items: center;
+  .overlay {
+    background: var(--header-background);
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
   aside {
     align-self: stretch;
     grid-column: sidebar-start / sidebar-end;
@@ -18,6 +26,7 @@
     img {
       width: 10rem;
       transform: rotate(90deg) translateX(55%);
+      z-index: -1;
     }
   }
   nav {
