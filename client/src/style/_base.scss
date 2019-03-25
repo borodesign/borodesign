@@ -33,3 +33,13 @@ a {
     text-decoration: none;
   }
 }
+
+.overlay {
+  width: 100%;
+  background: var(--header-background);
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+}

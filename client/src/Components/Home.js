@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { TimelineLite, CSSPlugin, Power2 } from "gsap/TweenMax";
+import { Link } from "react-router-dom";
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.myTween = null;
 
-    this.overlay = null;
+    this.header = null;
     this.heading = null;
     this.cta = null;
     this.navList = null;
@@ -14,7 +15,7 @@ class Home extends Component {
   }
   componentDidMount() {
     this.myTween = new TimelineLite();
-    this.myTween.from(this.overlay, 2, {
+    this.myTween.from(this.header, 2, {
       height: "100vh",
       scale: 1.3,
       delay: 0.9,
@@ -39,17 +40,19 @@ class Home extends Component {
     return (
       <div className="home">
         <aside>
-          <img
-            src="/images/boro.png"
-            alt=""
-            ref={element => (this.logo = element)}
-          />
+          <Link to="/">
+            <img
+              src="/images/boro.png"
+              alt=""
+              ref={element => (this.logo = element)}
+            />
+          </Link>
         </aside>
         <nav>
           <ul ref={element => (this.navList = element)}>
-            <a href="#">
+            <Link to="/work">
               <li>Work</li>
-            </a>
+            </Link>
             <a href="#">
               <li>About</li>
             </a>
@@ -61,13 +64,13 @@ class Home extends Component {
             </a>
           </ul>
         </nav>
-        <header ref={element => (this.overlay = element)}>
+        <header ref={element => (this.header = element)}>
           <h1 ref={element => (this.heading = element)}>
             Digital agency with a passion for creativity
           </h1>
-          <a href="#" ref={element => (this.cta = element)}>
-            <button>View our work</button>
-          </a>
+          <Link to="/work">
+            <button ref={element => (this.cta = element)}>View our work</button>
+          </Link>
         </header>
       </div>
     );

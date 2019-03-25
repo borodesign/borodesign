@@ -7,6 +7,7 @@
     center-start] repeat(8, minmax(min-content, 20rem)) [center-end]
     minmax(2rem, 1fr) [full-end];
   align-items: center;
+
   aside {
     align-self: stretch;
     grid-column: sidebar-start / sidebar-end;
