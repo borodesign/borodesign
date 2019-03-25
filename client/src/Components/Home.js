@@ -8,18 +8,21 @@ class Home extends Component {
 
     this.overlay = null;
     this.heading = null;
+    this.cta = null;
   }
   componentDidMount() {
     this.myTween = new TimelineLite();
     this.myTween.to(this.overlay, 3, {
       scaleX: 0.86,
       scaleY: 0.8,
-      width: "106%",
+      width: "98%",
       height: "92vh",
       delay: 0.9,
       ease: Power2.easeInOut
     });
-    this.myTween.to(this.overlay, 0.01, { autoAlpha: 0 }, "-=.9");
+    this.myTween.to(this.overlay, 0.2, { autoAlpha: 0 }, "-=.9");
+    this.myTween.from(this.heading, 1, { autoAlpha: 0, y: 30 }, "-=.8");
+    this.myTween.from(this.cta, 1, { autoAlpha: 0, y: -10 }, "+=.08");
   }
 
   render() {
@@ -49,7 +52,7 @@ class Home extends Component {
           <h1 ref={element => (this.heading = element)}>
             Digital agency with a passion for creativity
           </h1>
-          <a href="#">
+          <a href="#" ref={element => (this.cta = element)}>
             <button>View our work</button>
           </a>
         </header>
