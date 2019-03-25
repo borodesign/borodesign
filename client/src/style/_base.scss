@@ -9,6 +9,10 @@
   box-sizing: inherit;
 }
 
+:root {
+  --header-background: #ffd900;
+}
+
 html {
   box-sizing: border-box;
   font-size: 62.5%; // 1rem = 10px
@@ -17,4 +21,13 @@ html {
 body {
   font-weight: 300;
   line-height: 1.6;
+}
+
+a {
+  &:link,
+  &:visited,
+  &:active,
+  &:hover {
+    text-decoration: none;
+  }
 }
