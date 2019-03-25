@@ -72,6 +72,18 @@ class Home extends Component {
             <button ref={element => (this.cta = element)}>View our work</button>
           </Link>
         </header>
+        <section className="home__description">
+          <h1>
+            A full service digital agency with a{" "}
+            <span className="emp">difference</span>
+          </h1>
+          <p>
+            It’s our belief that deeper, more diverse insights lead to better
+            work. So we are taking collaboration to the next level. We bring as
+            many perspectives to the table as possible - in lightning fast time
+            - to power big ideas for ambitious brands.
+          </p>
+        </section>
       </div>
     );
   }

@@ -95,4 +95,27 @@
       }
     }
   }
+  &__description {
+    grid-row: 3 / 4;
+    grid-column: 3 / 9;
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 5rem;
+    align-items: center;
+    padding: 20rem 0;
+
+    h1 {
+      grid-column: 1 / 4;
+      font-size: 5rem;
+      font-family: "Ubuntu", sans-serif;
+      text-align: center;
+    }
+    p {
+      grid-column: 4 / -1;
+      font-size: 2rem;
+      font-family: "Muli", sans-serif;
+      padding-left: 2rem;
+    }
+  }
 }
