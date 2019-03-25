@@ -1,25 +1,37 @@
 import React, { Component } from "react";
-import { TimelineLite, CSSPlugin, Power2 } from "gsap/TweenMax";
 import { Link } from "react-router-dom";
+const gsap = window.gsap;
+const TimelineLite = window.TimelineLite;
+const Power2 = window.Power2;
+const ScrollMagic = window.ScrollMagic;
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.myTween = null;
+    this.descTween = null;
 
     this.header = null;
     this.heading = null;
     this.cta = null;
     this.navList = null;
     this.logo = null;
+
+    this.description = null;
+    this.descHeading = null;
+    this.descText = null;
   }
   componentDidMount() {
+    console.log(window);
     this.myTween = new TimelineLite();
     this.myTween.from(this.header, 2, {
       height: "100vh",
       scale: 1.3,
       delay: 0.9,
-      ease: Power2.easeOut
+      ease: Power2.easeOut,
+      onComplete: () => {
+        this.myTween.to("body", 0.01, { overflowY: "visible" });
+      }
     });
     this.myTween.from(this.heading, 1, { autoAlpha: 0, y: 30 }, "-=.8");
     this.myTween.from(this.cta, 1, { autoAlpha: 0, y: -10 }, "+=.08");
@@ -34,6 +46,29 @@ class Home extends Component {
       "-=1.5"
     );
     this.myTween.from(this.logo, 0.5, { autoAlpha: 0, x: -30 }, "-=2");
+
+    this.descTween = new TimelineLite();
+    this.descTween.from(this.descHeading, 1, {
+      x: -150,
+      autoAlpha: 0,
+      ease: Power2.easeOut
+    });
+    this.descTween.from(
+      this.descText,
+      1,
+      { x: 150, autoAlpha: 0, ease: Power2.easeOut },
+      "-=.7"
+    );
+
+    const controller = new ScrollMagic.Controller();
+    const scene = new ScrollMagic.Scene({
+      triggerElement: ".home__description",
+      triggerHook: "onCenter",
+      duration: "100%",
+      offset: 50
+    })
+      .setTween(this.descTween)
+      .addTo(controller);
   }
 
   render() {
@@ -73,15 +108,25 @@ class Home extends Component {
           </Link>
         </header>
         <section className="home__description">
-          <h1>
+          <h1 ref={element => (this.descHeading = element)}>
             A full service digital agency with a{" "}
             <span className="emp">difference</span>
           </h1>
-          <p>
-            It’s our belief that deeper, more diverse insights lead to better
-            work. So we are taking collaboration to the next level. We bring as
-            many perspectives to the table as possible - in lightning fast time
-            - to power big ideas for ambitious brands.
+          <div id="divider" />
+          <p ref={element => (this.descText = element)}>
+            <span
+              style={{
+                color: "var(--header-background)",
+                fontSize: "4rem",
+                fontWeight: "700",
+                marginRight: ".2rem"
+              }}
+            >
+              I
+            </span>t’s our belief that deeper, more diverse insights lead to
+            better work. So we are taking collaboration to the next level. We
+            bring as many perspectives to the table as possible - in lightning
+            fast time - to power big ideas for ambitious brands.
           </p>
         </section>
       </div>
