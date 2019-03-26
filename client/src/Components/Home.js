@@ -149,9 +149,6 @@ class Home extends Component {
               <li>About</li>
             </a>
             <a href="#">
-              <li>Careers</li>
-            </a>
-            <a href="#">
               <li>Contact</li>
             </a>
           </ul>
