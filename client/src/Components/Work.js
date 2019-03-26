@@ -17,9 +17,11 @@ class Work extends React.Component {
     this.galleryTween = null;
     this.gallery = null;
   }
+
   componentDidMount() {
     this.myTween = new TimelineLite();
     this.myTween.set(".work", { autoAlpha: 0 });
+    this.myTween.set(this.overlay, { height: "100%" });
     this.myTween.to(this.overlay, 1, {
       x: "100%",
       repeat: 1,
@@ -95,47 +97,55 @@ class Work extends React.Component {
             </ul>
           </nav>
           <header ref={element => (this.header = element)}>
-            <h1 ref={element => (this.heading = element)}>Our work</h1>
+            <h1 ref={element => (this.heading = element)}>Our latest work</h1>
           </header>
           <section
             className="work__gallery"
             ref={element => (this.gallery = element)}
           >
-            <figure className="work__gallery--human">
-              <div className="work__gallery--human__image">
-                <img src="/images/human.png" />
-              </div>
-              <div className="work__gallery--human__description">
-                <span />
-                <h1>Human Appeal</h1>
-                <p>Redesigning of the website and applying a creative touch</p>
-              </div>
-            </figure>
-            <figure className="work__gallery--muslim">
-              <div className="work__gallery--muslim__image">
-                <img src="/images/muslim.jpg" />
-              </div>
-              <div className="work__gallery--muslim__description">
-                <span />
-                <h1>Muslim Hands</h1>
-                <p>
-                  Bringing the true desires and expressions of the charity to
-                  life
-                </p>
-              </div>
-            </figure>
-            <figure className="work__gallery--tv">
-              <div className="work__gallery--tv__image">
-                <img src="/images/alchemiya.png" />
-              </div>
-              <div className="work__gallery--tv__description">
-                <span />
-                <h1>Alchemiya</h1>
-                <p>
-                  A complete overhaul of the landing page and content displays
-                </p>
-              </div>
-            </figure>
+            <Link className="figure_grid">
+              <figure className="work__gallery--human">
+                <div className="work__gallery--human__image">
+                  <img src="/images/human.png" />
+                </div>
+                <div className="work__gallery--human__description">
+                  <span />
+                  <h1>Human Appeal</h1>
+                  <p>
+                    Redesigning of the website and applying a creative touch
+                  </p>
+                </div>
+              </figure>
+            </Link>
+            <Link className="figure_grid">
+              <figure className="work__gallery--muslim">
+                <div className="work__gallery--muslim__image">
+                  <img src="/images/muslim.jpg" />
+                </div>
+                <div className="work__gallery--muslim__description">
+                  <span />
+                  <h1>Muslim Hands</h1>
+                  <p>
+                    Bringing the true desires and expressions of the charity to
+                    life
+                  </p>
+                </div>
+              </figure>
+            </Link>
+            <Link className="figure_grid">
+              <figure className="work__gallery--tv">
+                <div className="work__gallery--tv__image">
+                  <img src="/images/alchemiya.png" />
+                </div>
+                <div className="work__gallery--tv__description">
+                  <span />
+                  <h1>Alchemiya</h1>
+                  <p>
+                    A complete overhaul of the landing page and content displays
+                  </p>
+                </div>
+              </figure>
+            </Link>
           </section>
         </div>
       </>

@@ -21,7 +21,7 @@ html {
 body {
   font-weight: 300;
   line-height: 1.6;
-
+  position: relative;
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -38,7 +38,6 @@ a {
 .overlay {
   width: 100%;
   background: var(--header-background);
-  height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
