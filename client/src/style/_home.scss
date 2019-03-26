@@ -129,4 +129,112 @@
       font-family: "Muli", sans-serif;
     }
   }
+  &__gallery {
+    grid-row: 4 / 5;
+    grid-column: full-start / full-end;
+    height: 20vw;
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+    align-items: start;
+    &--item {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      &__description {
+        span {
+          width: 5rem;
+          height: 0.4rem;
+          background: white;
+        }
+        h1 {
+          font-size: 5rem;
+          color: white;
+          font-family: "Ubuntu", sans-serif;
+        }
+        p {
+          font-size: 2rem;
+          color: white;
+          font-family: "Dosis", sans-serif;
+          text-transform: uppercase;
+        }
+        &--human {
+          background-image: linear-gradient(
+            rgba(51, 0, 153, 0.9),
+            rgba(51, 0, 153, 0.6)
+          );
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          padding: 0 3rem;
+          padding-bottom: 3rem;
+          border: 1px solid tranparent;
+          opacity: 0;
+        }
+        &--mhands {
+          background-image: linear-gradient(
+            rgba(0, 153, 0, 0.6),
+            rgba(0, 153, 0, 0.3)
+          );
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          padding: 0 3rem;
+          padding-bottom: 3rem;
+          border: 1px solid tranparent;
+          opacity: 0;
+        }
+        &--tv {
+          background-image: linear-gradient(
+            rgba(0, 51, 153, 0.6),
+            rgba(0, 51, 153, 0.3)
+          );
+          position: absolute;
+          height: 100%;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          padding: 0 3rem;
+          padding-bottom: 3rem;
+          border: 1px solid tranparent;
+          opacity: 0;
+        }
+      }
+    }
+    .human {
+      background-image: linear-gradient(
+          rgba(51, 0, 153, 0.6),
+          rgba(51, 0, 153, 0.3)
+        ),
+        url("/images/human.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .mhands {
+      background-image: linear-gradient(
+          rgba(0, 153, 0, 0.6),
+          rgba(0, 153, 0, 0.3)
+        ),
+        url("/images/muslim.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .tv {
+      background-image: linear-gradient(
+          rgba(0, 51, 153, 0.6),
+          rgba(0, 51, 153, 0.3)
+        ),
+        url("/images/alchemiya.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
 }

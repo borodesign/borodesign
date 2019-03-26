@@ -10,6 +10,7 @@ class Home extends Component {
     super(props);
     this.myTween = null;
     this.descTween = null;
+    this.imageTween = null;
 
     this.header = null;
     this.heading = null;
@@ -22,7 +23,6 @@ class Home extends Component {
     this.descText = null;
   }
   componentDidMount() {
-    console.log(window);
     this.myTween = new TimelineLite();
     this.myTween.from(this.header, 2, {
       height: "100vh",
@@ -70,6 +70,63 @@ class Home extends Component {
       .setTween(this.descTween)
       .addTo(controller);
   }
+
+  mouseEnter = (e, className) => {
+    this.imageTween = new TimelineLite();
+    this.imageTween.set(`${className}`, {
+      scaleY: 0,
+      transformOrigin: "bottom left"
+    });
+    this.imageTween.set(`${className} h1`, {
+      autoAlpha: 0,
+      y: 50
+    });
+    this.imageTween.set(`${className} p`, {
+      autoAlpha: 0,
+      y: 30
+    });
+    this.imageTween.set(`${className} span`, {
+      autoAlpha: 0,
+      width: 0
+    });
+
+    this.imageTween.to(`${className}`, 0.6, {
+      scaleY: 1,
+      autoAlpha: 1,
+      transformOrigin: "bottom left"
+    });
+    this.imageTween.to(
+      `${className} h1`,
+      0.5,
+      {
+        autoAlpha: 1,
+        y: 0
+      },
+      "-=.2"
+    );
+    this.imageTween.to(
+      `${className} p`,
+      0.3,
+      {
+        autoAlpha: 1,
+        y: 0
+      },
+      "-=.1"
+    );
+    this.imageTween.to(
+      `${className} span`,
+      1,
+      {
+        autoAlpha: 1,
+        width: "5rem"
+      },
+      "-=1"
+    );
+  };
+
+  mouseLeave = e => {
+    this.imageTween.reverse();
+  };
 
   render() {
     return (
@@ -128,6 +185,53 @@ class Home extends Component {
             bring as many perspectives to the table as possible - in lightning
             fast time - to power big ideas for ambitious brands.
           </p>
+        </section>
+        <section className="home__gallery">
+          <figure
+            className="home__gallery--item human"
+            onMouseEnter={e =>
+              this.mouseEnter(e, ".home__gallery--item__description--human")
+            }
+            onMouseLeave={e =>
+              this.mouseLeave(e, ".home__gallery--item__description--human")
+            }
+          >
+            <div className="home__gallery--item__description home__gallery--item__description--human">
+              <span />
+              <h1>Human Appeal</h1>
+              <p>Charity Organisation</p>
+            </div>
+          </figure>
+          <figure
+            className="home__gallery--item mhands"
+            onMouseEnter={e =>
+              this.mouseEnter(e, ".home__gallery--item__description--mhands")
+            }
+            onMouseLeave={e =>
+              this.mouseLeave(e, ".home__gallery--item__description--mhands")
+            }
+          >
+            <div className="home__gallery--item__description home__gallery--item__description--mhands">
+              <span />
+              <h1>Muslim Hands</h1>
+              <p>Charity Organisation</p>
+            </div>
+          </figure>
+          <figure
+            className="home__gallery--item tv"
+            onMouseEnter={e =>
+              this.mouseEnter(e, ".home__gallery--item__description--tv")
+            }
+            onMouseLeave={e =>
+              this.mouseLeave(e, ".home__gallery--item__description--tv")
+            }
+          >
+            <div className="home__gallery--item__description home__gallery--item__description--tv">
+              <span />
+              <h1>Alchemiya</h1>
+              <p>On-demand TV</p>
+            </div>
+          </figure>
         </section>
       </div>
     );
