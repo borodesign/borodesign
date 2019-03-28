@@ -103,7 +103,7 @@ class Work extends React.Component {
             className="work__gallery"
             ref={element => (this.gallery = element)}
           >
-            <Link className="figure_grid">
+            <Link to="/work/human-appeal" className="figure_grid">
               <figure className="work__gallery--human">
                 <div className="work__gallery--human__image">
                   <img src="/images/human.png" />
@@ -117,7 +117,7 @@ class Work extends React.Component {
                 </div>
               </figure>
             </Link>
-            <Link className="figure_grid">
+            <Link to="/work/muslim-hands" className="figure_grid">
               <figure className="work__gallery--muslim">
                 <div className="work__gallery--muslim__image">
                   <img src="/images/muslim.jpg" />
@@ -132,7 +132,7 @@ class Work extends React.Component {
                 </div>
               </figure>
             </Link>
-            <Link className="figure_grid">
+            <Link to="/work/alchemiya" className="figure_grid">
               <figure className="work__gallery--tv">
                 <div className="work__gallery--tv__image">
                   <img src="/images/alchemiya.png" />

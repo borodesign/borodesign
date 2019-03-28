@@ -37,11 +37,13 @@ a {
 
 .overlay {
   width: 100%;
+  height: 100%;
   background: var(--header-background);
   position: absolute;
   top: 0;
   left: 0;
   transform: translateX(-100%);
+  z-index: 1000;
 }
 
 .emp {
