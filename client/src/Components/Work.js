@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { TimelineLite, CSSPlugin, Power2 } from "gsap/TweenMax";
 import { Link } from "react-router-dom";
+import ReactDOM from "react-dom";
 const ScrollMagic = window.ScrollMagic;
 
 class Work extends React.Component {
@@ -19,6 +20,7 @@ class Work extends React.Component {
   }
 
   componentDidMount() {
+    ReactDOM.findDOMNode(this).scrollIntoView();
     this.myTween = new TimelineLite();
     this.myTween.set(".work", { autoAlpha: 0 });
     this.myTween.set(this.overlay, { height: "100%" });

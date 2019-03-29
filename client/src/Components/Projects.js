@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import ReactDOM from "react-dom";
 const Power2 = window.Power2;
 const TimelineLite = window.TimelineLite;
 const ScrollMagic = window.ScrollMagic;
@@ -19,6 +20,7 @@ class Projects extends Component {
   }
 
   componentDidMount() {
+    ReactDOM.findDOMNode(this).scrollIntoView();
     this.myTween1 = new TimelineLite();
     this.myTween1.set(".projects", { autoAlpha: 0 });
     this.myTween1.set(this.overlay, { height: "100%" });
@@ -52,7 +54,7 @@ class Projects extends Component {
     this.myTween2 = new TimelineLite().add([
       TweenMax.set(this.heading, { y: 0 }),
       TweenMax.to(".bg-image", 1.5, { scale: 1.5, ease: Power2.ease }),
-      TweenMax.to(this.heading, 1, { y: 300, ease: Power2.ease })
+      TweenMax.to(this.heading, 1, { y: 200, ease: Power2.ease })
     ]);
 
     this.myTween3 = new TimelineLite().add([

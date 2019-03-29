@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import ReactDOM from "react-dom";
 const gsap = window.gsap;
 const TimelineLite = window.TimelineLite;
 const Power2 = window.Power2;
@@ -23,6 +24,7 @@ class Home extends Component {
     this.descText = null;
   }
   componentDidMount() {
+    ReactDOM.findDOMNode(this).scrollIntoView();
     this.myTween = new TimelineLite();
     this.myTween.from(this.header, 2, {
       height: "100vh",
