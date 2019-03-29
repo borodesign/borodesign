@@ -19,6 +19,17 @@ const Routes = props => {
           );
         }}
       />
+      <Route
+        exact
+        path="/work/muslim-hands"
+        render={renderProps => {
+          return (
+            <Projects title="Muslim Hands" image="/images/muslim.jpg">
+              <DetailsProject path="muslim" />
+            </Projects>
+          );
+        }}
+      />
       <Route exact path="/work" component={Work} />
       <Route exact path="/" component={Home} />
     </Switch>

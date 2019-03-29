@@ -64,7 +64,7 @@ class Projects extends Component {
       ),
       TweenMax.staggerFrom(
         ".projects__details--images figure",
-        1,
+        0.6,
         {
           scale: 0,
           autoAlpha: 0,
@@ -112,12 +112,10 @@ class Projects extends Component {
               }}
             />
             <aside>
-              <Link to="/">
-                <img
-                  src="/images/boro.png"
-                  alt=""
-                  ref={element => (this.logo = element)}
-                />
+              <Link to="/work">
+                <div className="back" ref={element => (this.logo = element)}>
+                  <img src="/images/right-arrow.svg" />
+                </div>
               </Link>
             </aside>
             <nav>

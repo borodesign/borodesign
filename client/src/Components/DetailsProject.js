@@ -20,15 +20,13 @@ class DetailsProject extends Component {
               their historical supporter base.
             </p>
             <p>
-              Our direction with Muslim Aid was to create a effective, current
+              Our direction with Human Appeal was to create a effective, current
               and non-clichéd approach while still strongly linking to Islamic
-              tenets. For example, publications or ads to be featured in mosques
-              could not feature faces, so a creative approach would be needed
-              such as cropping images or enhancing the typography of designs
-              whilst still retaining it as part of an integrated campaign.
+              tenets. We incorporated the new logo design provided to us with
+              our own design ideas
             </p>
           </div>
-          <div className="projects__details--images">
+          <div className="projects__details--images human">
             <figure>
               <img src="/images/humanAd.png" />
             </figure>
@@ -38,12 +36,41 @@ class DetailsProject extends Component {
             <figure>
               <img src="/images/human4.jpg" />
             </figure>
-
             <figure>
               <img src="/images/humanAd3.jpg" />
             </figure>
             <figure>
               <img src="/images/human.png" />
+            </figure>
+          </div>
+        </>
+      );
+    } else if (this.props.path === "muslim") {
+      return (
+        <>
+          <div className="projects__details--text">
+            <p>
+              Muslim Hands, an international aid agency and NGO, grew from this
+              grass roots movement and since these first efforts, we have
+              responded to countless more emergencies, as well as establishing
+              long term projects such as schools, healthcare clinics and
+              livelihood programmes worldwide. We worked on breathing into our
+              web design the spirit of Muslim Hands and modern web design
+              layouts.
+            </p>
+          </div>
+          <div className="projects__details--images muslim">
+            <figure>
+              <img src="/images/muslim.jpg" />
+            </figure>
+            <figure>
+              <img src="/images/muslimAd2.jpg" />
+            </figure>
+            <figure>
+              <img src="/images/muslimAd3.jpg" />
+            </figure>
+            <figure>
+              <img src="/images/muslimAd.jpg" />
             </figure>
           </div>
         </>
