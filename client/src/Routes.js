@@ -30,6 +30,17 @@ const Routes = props => {
           );
         }}
       />
+      <Route
+        exact
+        path="/work/alchemiya"
+        render={renderProps => {
+          return (
+            <Projects title="Alchemiya" image="/images/alchemiya.png">
+              <DetailsProject path="alchemiya" />
+            </Projects>
+          );
+        }}
+      />
       <Route exact path="/work" component={Work} />
       <Route exact path="/" component={Home} />
     </Switch>

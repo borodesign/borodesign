@@ -75,6 +75,38 @@ class DetailsProject extends Component {
           </div>
         </>
       );
+    } else if (this.props.path === "alchemiya") {
+      return (
+        <>
+          <div className="projects__details--text">
+            <p>
+              Alchemiya is a new and exciting premium, online,
+              subscription-based, video-on-demand platform, similar to Netflix.
+              It’s now been snapped up by Amazon Prime to add to their streaming
+              roster, joining 70 major channels including HBO, Starz and Comedy
+              Central. Initial launch is in the US, with Europe and Asia to
+              follow in the next few months.
+            </p>
+          </div>
+          <div className="projects__details--images tv">
+            <figure>
+              <img src="/images/alchemiya.png" />
+            </figure>
+            <figure>
+              <img src="/images/alchemiyaAd.jpg" />
+            </figure>
+            <figure>
+              <img src="/images/alchemiyaAd2.jpg" />
+            </figure>
+            <figure>
+              <img src="/images/alchemiyaAd3.png" />
+            </figure>
+            <figure>
+              <img src="/images/alchemiyaAd4.jpg" />
+            </figure>
+          </div>
+        </>
+      );
     }
   };
 
