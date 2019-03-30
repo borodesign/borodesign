@@ -4,6 +4,7 @@ import Home from "./Components/Home";
 import Work from "./Components/Work";
 import Projects from "./Components/Projects";
 import DetailsProject from "./Components/DetailsProject";
+import About from "./Components/About";
 
 const Routes = props => {
   return (
@@ -41,6 +42,7 @@ const Routes = props => {
           );
         }}
       />
+      <Route exact path="/about" component={About} />
       <Route exact path="/work" component={Work} />
       <Route exact path="/" component={Home} />
     </Switch>

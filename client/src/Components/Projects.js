@@ -125,9 +125,9 @@ class Projects extends Component {
                 <Link to="/work">
                   <li>Work</li>
                 </Link>
-                <a href="#">
+                <Link to="/about">
                   <li>About</li>
-                </a>
+                </Link>
                 <a href="#">
                   <li>Contact</li>
                 </a>
