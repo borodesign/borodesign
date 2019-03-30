@@ -125,6 +125,14 @@
         font-size: 2rem;
         font-family: "Muli", sans-serif;
       }
+      button {
+        padding: 1rem 1.5rem;
+        background: var(--header-background);
+        color: black;
+        font-family: "Ubuntu", sans-serif;
+        border: 3px solid black;
+        cursor: pointer;
+      }
     }
     &--images {
       display: grid;

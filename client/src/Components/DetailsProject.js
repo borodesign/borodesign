@@ -25,6 +25,9 @@ class DetailsProject extends Component {
               tenets. We incorporated the new logo design provided to us with
               our own design ideas
             </p>
+            <a href="https://humanappeal.org.uk/">
+              <button>Visit Site</button>
+            </a>
           </div>
           <div className="projects__details--images human">
             <figure>
@@ -58,6 +61,9 @@ class DetailsProject extends Component {
               web design the spirit of Muslim Hands and modern web design
               layouts.
             </p>
+            <a href="https://muslimhands.org.uk/">
+              <button>Visit Site</button>
+            </a>
           </div>
           <div className="projects__details--images muslim">
             <figure>
@@ -87,6 +93,9 @@ class DetailsProject extends Component {
               Central. Initial launch is in the US, with Europe and Asia to
               follow in the next few months.
             </p>
+            <a href="https://alchemiya.com/">
+              <button>Visit Site</button>
+            </a>
           </div>
           <div className="projects__details--images tv">
             <figure>

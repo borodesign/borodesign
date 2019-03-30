@@ -59,7 +59,7 @@ class Projects extends Component {
 
     this.myTween3 = new TimelineLite().add([
       TweenMax.staggerFrom(
-        ".projects__details--text p",
+        ".projects__details--text",
         1,
         { x: -40, autoAlpha: 0 },
         0.1
