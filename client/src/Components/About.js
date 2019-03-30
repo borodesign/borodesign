@@ -25,7 +25,7 @@ class About extends Component {
       yoyo: true,
       onComplete: () => {
         this.myTween.to("body", 0.01, { overflowY: "visible" });
-        this.myTween.to(this.overlay, 0.1, { autoAlpha: 0 });
+        this.myTween.to(this.overlay, 0.1, { autoAlpha: 0, height: 0 });
       }
     });
     this.myTween.to(".work", 0.1, { autoAlpha: 1 });
@@ -85,6 +85,17 @@ class About extends Component {
               innovative production. We specialise in the new Islamic economy
               working with startups and and charities
             </p>
+            <div className="about__details--contact">
+              <h1>Contact us</h1>
+              <ul>
+                <li>
+                  <p>Email: jak.boro@gmail.com</p>
+                </li>
+                <li>
+                  <p>Phone: (+44)7538136065</p>
+                </li>
+              </ul>
+            </div>
           </section>
         </div>
       </>

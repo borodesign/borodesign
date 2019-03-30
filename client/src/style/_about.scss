@@ -102,11 +102,27 @@
     grid-row: 3 / 4;
     padding: 10rem 5rem;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    & > * {
+      margin-bottom: 3rem;
+    }
     p {
       font-size: 3rem;
       font-family: "Muli", sans-serif;
+    }
+    &--contact {
+      align-self: flex-start;
+      h1 {
+        font-size: 4rem;
+        font-family: "Ubuntu", sans-serif;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
     }
   }
 }

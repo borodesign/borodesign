@@ -150,9 +150,9 @@ class Home extends Component {
             <Link to="/about">
               <li>About</li>
             </Link>
-            <a href="#">
+            <Link to="/about">
               <li>Contact</li>
-            </a>
+            </Link>
           </ul>
         </nav>
         <header ref={element => (this.header = element)}>
