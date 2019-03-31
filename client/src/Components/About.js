@@ -44,6 +44,14 @@ class About extends Component {
     this.myTween.from(this.logo, 0.5, { autoAlpha: 0, x: -30 }, "-=.5");
     this.myTween.from(this.details, 0.5, { autoAlpha: 0, y: 50 }, "-=.4");
   }
+  openMobileNav = () => {
+    console.log(this.navElement.style.display);
+    if (this.navElement.style.display === "flex") {
+      this.navElement.style.display = "none";
+    } else {
+      this.navElement.style.display = "flex";
+    }
+  };
 
   render() {
     return (
@@ -59,17 +67,34 @@ class About extends Component {
             </Link>
           </aside>
           <nav>
-            <ul ref={element => (this.navList = element)}>
+            <div id="myLinks" ref={element => (this.navElement = element)}>
+              <ul ref={element => (this.navList = element)}>
+                <Link to="/work">
+                  <li>Work</li>
+                </Link>
+                <Link to="/about">
+                  <li>About</li>
+                </Link>
+                <a href="#">
+                  <li>Contact</li>
+                </a>
+              </ul>
+            </div>
+            <ul ref={element => (this.navList = element)} className="default">
               <Link to="/work">
                 <li>Work</li>
               </Link>
               <Link to="/about">
                 <li>About</li>
               </Link>
-              <a href="#">
+              <Link to="/about">
                 <li>Contact</li>
-              </a>
+              </Link>
             </ul>
+            {/* Mobile button icon */}
+            <div className="mobileicon" onClick={this.openMobileNav}>
+              <i class="fa fa-bars" />
+            </div>
           </nav>
           <header ref={element => (this.header = element)}>
             <h1 ref={element => (this.heading = element)}>Who we are</h1>

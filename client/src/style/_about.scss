@@ -8,6 +8,9 @@
     minmax(2rem, 1fr) [full-end];
   align-items: center;
   position: relative;
+  @media only screen and (max-width: 46.88em) {
+    grid-template-rows: 8rem 40vh repeat(3, minmax(3rem, max-content));
+  }
 
   aside {
     align-self: stretch;
@@ -16,13 +19,49 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media only screen and (max-width: 59.38em) {
+      grid-column: 1/ 5;
+      grid-row: 1 / 2;
+      justify-content: center;
+    }
+    @media only screen and (max-width: 31.88em) {
+      grid-column: 1/ 4;
+    }
     img {
       width: 10rem;
       transform: rotate(90deg) translateX(55%);
+      @media only screen and (max-width: 59.38em) {
+        transform: rotate(0deg) translate(0, 0);
+      }
     }
   }
   nav {
     grid-column: 6 / 10;
+    @media only screen and (max-width: 37.5em) {
+      grid-column: 9 / -1;
+      display: flex;
+      flex-direction: column;
+    }
+    #myLinks {
+      display: none;
+      @media only screen and (max-width: 37.5em) {
+        display: none;
+      }
+    }
+    .mobileicon {
+      display: none;
+      @media only screen and (max-width: 37.5em) {
+        align-self: center;
+        display: block;
+        font-size: 3rem;
+        cursor: pointer;
+      }
+    }
+    .default {
+      @media only screen and (max-width: 37.5em) {
+        display: none;
+      }
+    }
     ul {
       list-style: none;
       padding: 0;
@@ -32,6 +71,18 @@
       justify-content: center;
       & > *:not(:last-child) {
         margin-right: 4rem;
+        @media only screen and (max-width: 37.5em) {
+          margin-right: 0;
+        }
+      }
+      @media only screen and (max-width: 37.5em) {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        position: absolute;
+        top: 8rem;
+        left: 0;
+        z-index: 1000;
       }
       a {
         color: black;
@@ -53,6 +104,13 @@
         &:hover {
           background-position: 100%;
         }
+        @media only screen and (max-width: 66.88em) {
+          font-size: 1.8rem;
+        }
+        @media only screen and (max-width: 37.5em) {
+          text-align: center;
+          border: 1px solid var(--header-background);
+        }
       }
     }
   }
@@ -68,6 +126,18 @@
     background-image: url("/images/about.gif");
     background-size: contain;
     background-position: top;
+    @media only screen and (max-width: 75em) {
+      font-size: 4.5rem;
+    }
+    @media only screen and (max-width: 59.38em) {
+      grid-column: full-start / full-end;
+    }
+    @media only screen and (max-width: 53.13em) {
+      font-size: 3rem;
+    }
+    @media only screen and (max-width: 31.88em) {
+      font-size: 2.7rem;
+    }
     h1 {
       line-height: 1;
       font-family: "Hind", sans-serif;

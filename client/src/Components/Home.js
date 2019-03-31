@@ -24,53 +24,58 @@ class Home extends Component {
     this.descText = null;
   }
   componentDidMount() {
+    console.log(window);
     ReactDOM.findDOMNode(this).scrollIntoView();
     this.myTween = new TimelineLite();
-    this.myTween.from(this.header, 2, {
-      height: "100vh",
-      scale: 1.3,
-      delay: 0.9,
-      ease: Power2.easeOut,
-      onComplete: () => {
-        this.myTween.to("body", 0.01, { overflowY: "visible" });
-      }
-    });
-    this.myTween.from(this.heading, 1, { autoAlpha: 0, y: 30 }, "-=.8");
-    this.myTween.from(this.cta, 1, { autoAlpha: 0, y: -10 }, "+=.08");
-    this.myTween.staggerFrom(
-      this.navList.children,
-      0.5,
-      {
-        y: 30,
-        autoAlpha: 0
-      },
-      0.06,
-      "-=1.5"
-    );
-    this.myTween.from(this.logo, 0.5, { autoAlpha: 0, x: -30 }, "-=2");
+    if (window.innerWidth >= 951) {
+      this.myTween.from(this.header, 2, {
+        height: "100vh",
+        scale: 1.3,
+        delay: 0.9,
+        ease: Power2.easeOut,
+        onComplete: () => {
+          this.myTween.to("body", 0.01, { overflowY: "visible" });
+        }
+      });
+      this.myTween.from(this.heading, 1, { autoAlpha: 0, y: 30 }, "-=.8");
+      this.myTween.from(this.cta, 1, { autoAlpha: 0, y: -10 }, "+=.08");
+      this.myTween.staggerFrom(
+        this.navList.children,
+        0.5,
+        {
+          y: 30,
+          autoAlpha: 0
+        },
+        0.06,
+        "-=1.5"
+      );
+      this.myTween.from(this.logo, 0.5, { autoAlpha: 0, x: -30 }, "-=2");
 
-    this.descTween = new TimelineLite();
-    this.descTween.from(this.descHeading, 1, {
-      x: -150,
-      autoAlpha: 0,
-      ease: Power2.easeOut
-    });
-    this.descTween.from(
-      this.descText,
-      1,
-      { x: 150, autoAlpha: 0, ease: Power2.easeOut },
-      "-=.7"
-    );
+      this.descTween = new TimelineLite();
+      this.descTween.from(this.descHeading, 1, {
+        x: -150,
+        autoAlpha: 0,
+        ease: Power2.easeOut
+      });
+      this.descTween.from(
+        this.descText,
+        1,
+        { x: 150, autoAlpha: 0, ease: Power2.easeOut },
+        "-=.7"
+      );
 
-    const controller = new ScrollMagic.Controller();
-    const scene = new ScrollMagic.Scene({
-      triggerElement: ".home__description",
-      triggerHook: "onCenter",
-      duration: "100%",
-      offset: 50
-    })
-      .setTween(this.descTween)
-      .addTo(controller);
+      const controller = new ScrollMagic.Controller();
+      const scene = new ScrollMagic.Scene({
+        triggerElement: ".home__description",
+        triggerHook: "onCenter",
+        duration: "100%",
+        offset: 50
+      })
+        .setTween(this.descTween)
+        .addTo(controller);
+    } else {
+      this.myTween.to("body", 0.01, { overflowY: "visible" });
+    }
   }
 
   mouseEnter = (e, className) => {
@@ -129,6 +134,14 @@ class Home extends Component {
   mouseLeave = e => {
     this.imageTween.reverse();
   };
+  openMobileNav = () => {
+    console.log(this.navElement.style.display);
+    if (this.navElement.style.display === "flex") {
+      this.navElement.style.display = "none";
+    } else {
+      this.navElement.style.display = "flex";
+    }
+  };
 
   render() {
     return (
@@ -143,7 +156,20 @@ class Home extends Component {
           </Link>
         </aside>
         <nav>
-          <ul ref={element => (this.navList = element)}>
+          <div id="myLinks" ref={element => (this.navElement = element)}>
+            <ul ref={element => (this.navList = element)}>
+              <Link to="/work">
+                <li>Work</li>
+              </Link>
+              <Link to="/about">
+                <li>About</li>
+              </Link>
+              <a href="#">
+                <li>Contact</li>
+              </a>
+            </ul>
+          </div>
+          <ul ref={element => (this.navList = element)} className="default">
             <Link to="/work">
               <li>Work</li>
             </Link>
@@ -154,6 +180,10 @@ class Home extends Component {
               <li>Contact</li>
             </Link>
           </ul>
+          {/* Mobile button icon */}
+          <div className="mobileicon" onClick={this.openMobileNav}>
+            <i class="fa fa-bars" />
+          </div>
         </nav>
         <header ref={element => (this.header = element)}>
           <h1 ref={element => (this.heading = element)}>
@@ -188,6 +218,11 @@ class Home extends Component {
         <section className="home__gallery">
           <figure
             className="home__gallery--item human"
+            onClick={e =>
+              window.innerWidth < 1400
+                ? this.mouseEnter(e, ".home__gallery--item__description--human")
+                : null
+            }
             onMouseEnter={e =>
               this.mouseEnter(e, ".home__gallery--item__description--human")
             }
@@ -203,6 +238,14 @@ class Home extends Component {
           </figure>
           <figure
             className="home__gallery--item mhands"
+            onClick={e =>
+              window.innerWidth < 1400
+                ? this.mouseEnter(
+                    e,
+                    ".home__gallery--item__description--mhands"
+                  )
+                : null
+            }
             onMouseEnter={e =>
               this.mouseEnter(e, ".home__gallery--item__description--mhands")
             }
@@ -218,6 +261,11 @@ class Home extends Component {
           </figure>
           <figure
             className="home__gallery--item tv"
+            onClick={e =>
+              window.innerWidth < 1400
+                ? this.mouseEnter(e, ".home__gallery--item__description--tv")
+                : null
+            }
             onMouseEnter={e =>
               this.mouseEnter(e, ".home__gallery--item__description--tv")
             }

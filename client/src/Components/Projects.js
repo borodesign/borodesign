@@ -95,6 +95,14 @@ class Projects extends Component {
       .addTo(controller);
   }
 
+  openMobileNav = () => {
+    console.log(this.navElement.style.display);
+    if (this.navElement.style.display === "flex") {
+      this.navElement.style.display = "none";
+    } else {
+      this.navElement.style.display = "flex";
+    }
+  };
   render() {
     return (
       <>
@@ -121,17 +129,34 @@ class Projects extends Component {
               </Link>
             </aside>
             <nav>
-              <ul ref={element => (this.navList = element)}>
+              <div id="myLinks" ref={element => (this.navElement = element)}>
+                <ul ref={element => (this.navList = element)}>
+                  <Link to="/work">
+                    <li>Work</li>
+                  </Link>
+                  <Link to="/about">
+                    <li>About</li>
+                  </Link>
+                  <a href="#">
+                    <li>Contact</li>
+                  </a>
+                </ul>
+              </div>
+              <ul ref={element => (this.navList = element)} className="default">
                 <Link to="/work">
                   <li>Work</li>
                 </Link>
                 <Link to="/about">
                   <li>About</li>
                 </Link>
-                <a href="#">
+                <Link to="/about">
                   <li>Contact</li>
-                </a>
+                </Link>
               </ul>
+              {/* Mobile button icon */}
+              <div className="mobileicon" onClick={this.openMobileNav}>
+                <i class="fa fa-bars" />
+              </div>
             </nav>
             <main className="" ref={element => (this.header = element)}>
               <h1 ref={element => (this.heading = element)}>

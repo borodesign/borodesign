@@ -8,6 +8,9 @@
     minmax(2rem, 1fr) [full-end];
   align-items: center;
   position: relative;
+  @media only screen and (max-width: 46.88em) {
+    grid-template-rows: 8rem 40vh repeat(3, minmax(3rem, max-content));
+  }
 
   aside {
     align-self: stretch;
@@ -16,13 +19,49 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    @media only screen and (max-width: 59.38em) {
+      grid-column: 1/ 5;
+      grid-row: 1 / 2;
+      justify-content: center;
+    }
+    @media only screen and (max-width: 31.88em) {
+      grid-column: 1/ 4;
+    }
     img {
       width: 10rem;
       transform: rotate(90deg) translateX(55%);
+      @media only screen and (max-width: 59.38em) {
+        transform: rotate(0deg) translate(0, 0);
+      }
     }
   }
   nav {
     grid-column: 6 / 10;
+    @media only screen and (max-width: 37.5em) {
+      grid-column: 9 / -1;
+      display: flex;
+      flex-direction: column;
+    }
+    #myLinks {
+      display: none;
+      @media only screen and (max-width: 37.5em) {
+        display: none;
+      }
+    }
+    .mobileicon {
+      display: none;
+      @media only screen and (max-width: 37.5em) {
+        align-self: center;
+        display: block;
+        font-size: 3rem;
+        cursor: pointer;
+      }
+    }
+    .default {
+      @media only screen and (max-width: 37.5em) {
+        display: none;
+      }
+    }
     ul {
       list-style: none;
       padding: 0;
@@ -32,6 +71,18 @@
       justify-content: center;
       & > *:not(:last-child) {
         margin-right: 4rem;
+        @media only screen and (max-width: 37.5em) {
+          margin-right: 0;
+        }
+      }
+      @media only screen and (max-width: 37.5em) {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        position: absolute;
+        top: 8rem;
+        left: 0;
+        z-index: 1000;
       }
       a {
         color: black;
@@ -53,6 +104,13 @@
         &:hover {
           background-position: 100%;
         }
+        @media only screen and (max-width: 66.88em) {
+          font-size: 1.8rem;
+        }
+        @media only screen and (max-width: 37.5em) {
+          text-align: center;
+          border: 1px solid var(--header-background);
+        }
       }
     }
   }
@@ -66,6 +124,18 @@
     padding: 3rem;
     font-size: 6rem;
     background: var(--header-background);
+    @media only screen and (max-width: 75em) {
+      font-size: 4.5rem;
+    }
+    @media only screen and (max-width: 59.38em) {
+      grid-column: full-start / full-end;
+    }
+    @media only screen and (max-width: 53.13em) {
+      font-size: 3rem;
+    }
+    @media only screen and (max-width: 31.88em) {
+      font-size: 2.7rem;
+    }
 
     h1 {
       line-height: 1;
@@ -104,8 +174,17 @@
     grid-template-rows: repeat(3, minmax(max-content, 1fr));
     grid-row-gap: 10rem;
     padding: 20rem 0;
+    @media only screen and (max-width: 56.25em) {
+      grid-column: full-start / full-end;
+    }
+    @media only screen and (max-width: 48.75em) {
+      padding: 15rem 3rem;
+    }
     .figure_grid {
       grid-column: 2 / 6;
+      @media only screen and (max-width: 48.75em) {
+        grid-column: 1 / -1;
+      }
     }
     figure {
       display: grid;
@@ -115,6 +194,11 @@
       align-items: center;
       justify-items: center;
       grid-column-gap: 5rem;
+      @media only screen and (max-width: 35.63em) {
+        grid-template-columns: 1fr;
+        grid-auto-rows: max-content;
+        grid-row-gap: 3rem;
+      }
       img {
         width: 100%;
         height: 100%;
@@ -164,6 +248,10 @@
       &__image {
         grid-column: 4 / -1;
         position: relative;
+        @media only screen and (max-width: 35.63em) {
+          grid-column: 1 / 4;
+          grid-row: 1 / 2;
+        }
       }
       &__description {
         grid-column: 1 / 4;
@@ -172,7 +260,10 @@
         grid-template-columns: max-content 1fr;
         align-items: center;
         grid-column-gap: 2rem;
-
+        @media only screen and (max-width: 35.63em) {
+          grid-column: 1 / 4;
+          grid-row: 2 / 3;
+        }
         span {
           width: 4rem;
           height: 0.5rem;
@@ -180,10 +271,16 @@
           grid-row: 1 / 2;
           background: black;
           border-radius: 3rem;
+          @media only screen and (max-width: 35.63em) {
+            grid-column: 1 / 2;
+          }
         }
         h1 {
           grid-column: 1 / 2;
           grid-row: 1 / 2;
+          @media only screen and (max-width: 35.63em) {
+            grid-column: 2 / -1;
+          }
         }
         p {
           grid-column: 1 / 3;
