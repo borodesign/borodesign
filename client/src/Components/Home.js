@@ -224,10 +224,14 @@ class Home extends Component {
                 : null
             }
             onMouseEnter={e =>
-              this.mouseEnter(e, ".home__gallery--item__description--human")
+              window.innerWidth > 1400
+                ? this.mouseEnter(e, ".home__gallery--item__description--human")
+                : null
             }
             onMouseLeave={e =>
-              this.mouseLeave(e, ".home__gallery--item__description--human")
+              window.innerWidth > 1400
+                ? this.mouseLeave(e, ".home__gallery--item__description--human")
+                : null
             }
           >
             <div className="home__gallery--item__description home__gallery--item__description--human">
@@ -247,7 +251,12 @@ class Home extends Component {
                 : null
             }
             onMouseEnter={e =>
-              this.mouseEnter(e, ".home__gallery--item__description--mhands")
+              window.innerWidth > 1400
+                ? this.mouseEnter(
+                    e,
+                    ".home__gallery--item__description--mhands"
+                  )
+                : null
             }
             onMouseLeave={e =>
               this.mouseLeave(e, ".home__gallery--item__description--mhands")
@@ -267,10 +276,14 @@ class Home extends Component {
                 : null
             }
             onMouseEnter={e =>
-              this.mouseEnter(e, ".home__gallery--item__description--tv")
+              window.innerWidth > 1400
+                ? this.mouseEnter(e, ".home__gallery--item__description--tv")
+                : null
             }
             onMouseLeave={e =>
-              this.mouseLeave(e, ".home__gallery--item__description--tv")
+              window.innerWidth > 1400
+                ? this.mouseLeave(e, ".home__gallery--item__description--tv")
+                : null
             }
           >
             <div className="home__gallery--item__description home__gallery--item__description--tv">
